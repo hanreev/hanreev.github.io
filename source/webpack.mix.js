@@ -3,8 +3,7 @@ let mix = require('laravel-mix');
 // Frontend
 mix.js('resources/js/scripts.js', 'assets/js')
     .sass('resources/scss/styles.scss', 'assets/css')
-    .sass('resources/scss/vendors.scss', 'assets/css')
-    .copy('resources/img', 'src/assets/img');
+    .sass('resources/scss/vendors.scss', 'assets/css');
 
 // Output Path
 mix.setPublicPath('src');
@@ -16,7 +15,15 @@ mix.disableNotifications();
 mix.version();
 
 // Options
-if (!mix.inProduction()) {
+if (mix.inProduction()) {
+    /* Mix Option */
+    mix.options({
+        postCss: [
+            require('postcss-discard-comments')({removeAll: true})
+        ],
+        processCssUrls: true
+    });
+} else {
     mix.sourceMaps();
 }
 

@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+
+<div class="wrapper">
+    <app-header></app-header>
+
+    <div class="section">
+        <div class="container">
+            <div class="button-container">
+                <a *ngFor="let social of socials" [href]="social.url" class="btn btn-info btn-round btn-icon mx-1" target="_blank" style="z-index:2;" [ngbTooltip]="social.tooltip" placement="top" container="body">
+                    <i [class]="social.icon"></i>
+                </a>
+            </div>
+            <h3 class="title" translate>About me</h3>
+            <h5 class="description" translate="about"></h5>
+        </div>
+    </div>
+
+    <div class="section bg-light">
+        <div class="container">
+            <h3 class="title" translate>Skills</h3>
+            <div id="skill-progress" class="row justify-content-center">
+                <div class="col-md-6">
+                    <div *ngFor="let skill of settings.skills" class="progress-container progress-{{ skill.style }}">
+                        <span class="progress-badge">{{ skill.name }}</span>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="skill.progress" aria-valuemin="0" aria-valuemax="100">
+                                <span class="progress-value">{{ skill.progress }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h3 class="title" translate>My Portfolio</h3>
+            <div class="row portfolio-tab">
+                <ngb-tabset type="pills" justify="center">
+                    <ngb-tab>
+                        <ng-template ngbTabTitle><i class="ti-world" ngbTooltip="Web" placement="bottom" container="body"></i></ng-template>
+                        <ng-template ngbTabContent>
+                            <div class="col-md-10 ml-auto mr-auto">
+                                <div class="row collections">
+                                    <div class="col-md-6">
+                                        <img src="assets/img/bg6.jpg" class="img-raised">
+                                        <img src="assets/img/bg11.jpg" alt="" class="img-raised">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img src="assets/img/bg7.jpg" alt="" class="img-raised">
+                                        <img src="assets/img/bg8.jpg" alt="" class="img-raised">
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle><i class="ti-desktop" ngbTooltip="Desktop" placement="bottom" container="body"></i></ng-template>
+                        <ng-template ngbTabContent>
+                            <div class="col-md-10 ml-auto mr-auto">
+                                <div class="row collections">
+                                    <div class="col-md-6">
+                                        <img src="assets/img/bg1.jpg" alt="" class="img-raised">
+                                        <img src="assets/img/bg3.jpg" alt="" class="img-raised">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img src="assets/img/bg8.jpg" alt="" class="img-raised">
+                                        <img src="assets/img/bg7.jpg" alt="" class="img-raised">
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle><i class="ti-mobile" ngbTooltip="Mobile" placement="bottom" container="body"></i></ng-template>
+                        <ng-template ngbTabContent>
+                            <div class="col-md-10 ml-auto mr-auto">
+                                <div class="row collections">
+                                    <div class="col-md-6">
+                                        <img src="assets/img/bg3.jpg" alt="" class="img-raised">
+                                        <img src="assets/img/bg8.jpg" alt="" class="img-raised">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img src="assets/img/bg7.jpg" alt="" class="img-raised">
+                                        <img src="assets/img/bg6.jpg" class="img-raised">
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+            </div>
+        </div>
+    </div>
+
+    <app-contact></app-contact>
+
+    <app-footer></app-footer>
+</div>

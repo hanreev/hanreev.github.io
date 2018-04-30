@@ -1,5 +1,4 @@
 import 'jquery';
-import 'popper.js';
-import 'bootstrap';
+import './now-ui-kit';
 
 window.$ = jQuery;

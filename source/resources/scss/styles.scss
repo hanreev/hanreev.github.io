@@ -1,0 +1,159 @@
+@import './variables';
+@import '~now-ui-kit/assets/css/now-ui-kit.css';
+
+a {
+    &,
+    &:hover,
+    &:focus {
+        color: $color-info;
+    }
+}
+
+.input-group .form-control:not(:last-child),
+.input-group-addon:not(:last-child),
+.input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .btn,
+.input-group-btn:not(:first-child) > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:not(:last-child) > .btn,
+.input-group-btn:not(:last-child) > .btn-group > .btn,
+.input-group-btn:not(:last-child) > .dropdown-toggle {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group-addon {
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: center;
+    background: none;
+}
+
+.input-group-focus .input-group-addon,
+.has-success .input-group-addon,
+.has-danger .input-group-addon,
+.form-control:focus {
+    background: none;
+    border-color: $color-info;
+}
+
+.invalid-feedback {
+    text-align: left;
+    margin: -5px 0 15px 0;
+    padding-left: 20px;
+}
+
+.textarea-container {
+    + .invalid-feedback {
+        margin-top: 5px;
+    }
+
+    &.has-success:after,
+    &.has-danger:after {
+        bottom: 110px;
+    }
+}
+
+.has-success  {
+    .input-group-addon,
+    .form-control,
+    .form-control:focus {
+        background: none;
+        border-color: $color-success;
+    }
+}
+
+.has-danger  {
+    .input-group-addon,
+    .form-control,
+    .form-control:focus {
+        background: none;
+        border-color: $color-danger;
+        color: $color-danger;
+    }
+
+    + .invalid-feedback {
+        display: block;
+    }
+}
+
+.portfolio-tab {
+    .nav-pills .nav-item .nav-link {
+        padding: 0;
+
+        &.active {
+            background-color: $color-info;
+        }
+    }
+
+    .tab-content {
+        margin-top: 45px;
+        margin-bottom: 50px;
+    }
+}
+
+.profile-page .button-container {
+    margin-top: -96px;
+}
+
+.btn.btn-icon:not(.btn-footer) i[class^="ti-"],
+.navbar .navbar-nav>a.btn.btn-icon:not(.btn-footer) i[class^="ti-"] {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-12px, -12px);
+    line-height: 1.5626rem;
+    width: 25px;
+}
+
+[role="button"] {
+    cursor: pointer;
+}
+
+@each $name, $color in $theme-colors {
+    .blockquote.blockquote-#{$name} {
+        border-color: $color;
+        color: $color;
+
+        small {
+            color: $color;
+        }
+    }
+
+    .separator.separator-#{$name} {
+        background-color: $color;
+    }
+
+    .page-header[filter-color="#{$name}"] {
+        background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), transparentize(darken($color, 5), .4));
+    }
+}
+
+@each $name, $color in $colors {
+    .progress-container.progress-#{$name} {
+        .progress {
+            background: transparentize($color, .7);
+        }
+
+        .progress-bar {
+            background: $color;
+        }
+
+        .progress-value,
+        .progress-badge {
+            color: $color;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .profile-page .button-container {
+        margin-top: -106px;
+
+        .btn {
+            height: 3.6rem;
+            min-width: 3.6rem;
+            width: 3.6rem;
+        }
+    }
+}
