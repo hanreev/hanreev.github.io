@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 import { TRANSLATE } from '../helpers';
 import { ContactModel } from '../contact.model';
@@ -32,7 +33,18 @@ export class ContactComponent implements OnInit {
 
   model = new ContactModel();
 
-  constructor(private translate: TranslateService) { }
+  afdMessages: any;
+
+  successMessage = null;
+
+  constructor(private translate: TranslateService, private afd: AngularFireDatabase) {
+    this.afdMessages = afd.list('/messages');
+    /*
+    this.afdMessages.snapshotChanges().subscribe(res => {
+      console.log(res);
+    });
+    */
+  }
 
   ngOnInit() {
     this.translate.onLangChange.subscribe(result => {
@@ -68,9 +80,13 @@ export class ContactComponent implements OnInit {
   }
 
   sendMessage(form: NgForm) {
-    console.log(form);
     if (form.valid) {
-      // send message
+      this.afdMessages.push(this.model);
+      form.reset();
+      this.translate.get(TRANSLATE('contact-success')).subscribe(res => {
+        this.successMessage = res;
+        setTimeout(() => { this.successMessage = null; }, 10000);
+      });
     }
   }
 

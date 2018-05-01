@@ -6,6 +6,7 @@
 	"Skills": "Skills",
 	"Want to contact me?": "Want to contact me?",
 	"about": "A professional and experienced programmer, fast learner and hard worker. Muhammad Hanif Rifa'i — was born on April 5, 1993 from the couple Hartono and Umul Umiyatin, father of two sons from the marriage with Jissyca Dhea Prihastara — Experienced in C++, Python, PHP, Ruby, Java, JavaScript, Lua, Qt, Django, Geodjango, Laravel, Ruby on Rails, Android Studio, GeoServer, NodeJS, Vue, Angular, React, OpenLayers, Leaflet, Google Maps JS, MySQL, PostgreSQL, PostGIS, SQLite, Git, Linux Administration, and so on.",
+	"contact-success": "Your message has been sent. Thank You!",
 	"placeholder": {
 		"email": "Email",
 		"message": "Type a message",

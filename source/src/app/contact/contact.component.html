@@ -43,8 +43,12 @@
                     <div class="invalid-feedback" *ngIf="(message.touched || message.dirty) && message.invalid">{{ errorMessage(message) }}</div>
 
                     <div class="send-button mt-4">
-                        <button type="submit" class="btn btn-info btn-round btn-block btn-lg" translate>Send Message</button>
+                        <button type="submit" [disabled]="!contactForm.valid" class="btn btn-info btn-round btn-block btn-lg" translate>Send Message</button>
                     </div>
+
+                    <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">
+                        {{ successMessage }}
+                    </ngb-alert>
                 </div>
             </div>
         </form>
