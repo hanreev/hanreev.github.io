@@ -13,5 +13,5 @@
 .DS_Store
 .gitkeep
 
-dist
-resources/colors.scss
+source/dist
+source/resources/colors.scss

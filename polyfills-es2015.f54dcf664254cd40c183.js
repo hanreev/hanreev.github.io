@@ -2,11 +2,11 @@
   [2],
   {
     1: function(e, t, n) {
-      e.exports = n("hN/g");
+      e.exports = n('hN/g');
     },
-    "hN/g": function(e, t, n) {
-      "use strict";
-      n.r(t), n("pDpN");
+    'hN/g': function(e, t, n) {
+      'use strict';
+      n.r(t), n('pDpN');
     },
     pDpN: function(e, t) {
       !(function(e) {
@@ -17,28 +17,23 @@
         function o(e, n) {
           t && t.measure && t.measure(e, n);
         }
-        n("Zone");
+        n('Zone');
         const r = !0 === e.__zone_symbol__forceDuplicateZoneCheck;
         if (e.Zone) {
-          if (r || "function" != typeof e.Zone.__symbol__)
-            throw new Error("Zone already loaded.");
+          if (r || 'function' != typeof e.Zone.__symbol__) throw new Error('Zone already loaded.');
           return e.Zone;
         }
         class s {
           constructor(e, t) {
             (this._parent = e),
-              (this._name = t ? t.name || "unnamed" : "<root>"),
+              (this._name = t ? t.name || 'unnamed' : '<root>'),
               (this._properties = (t && t.properties) || {}),
-              (this._zoneDelegate = new a(
-                this,
-                this._parent && this._parent._zoneDelegate,
-                t
-              ));
+              (this._zoneDelegate = new a(this, this._parent && this._parent._zoneDelegate, t));
           }
           static assertZonePatched() {
             if (e.Promise !== D.ZoneAwarePromise)
               throw new Error(
-                "Zone.js has detected that ZoneAwarePromise `(window|global).Promise` has been overwritten.\nMost likely cause is that a Promise polyfill has been loaded after Zone.js (Polyfilling Promise api is not necessary when zone.js is loaded. If you must load one, do so before loading zone.js.)"
+                'Zone.js has detected that ZoneAwarePromise `(window|global).Promise` has been overwritten.\nMost likely cause is that a Promise polyfill has been loaded after Zone.js (Polyfilling Promise api is not necessary when zone.js is loaded. If you must load one, do so before loading zone.js.)'
               );
           }
           static get root() {
@@ -54,9 +49,9 @@
           }
           static __load_patch(t, i) {
             if (D.hasOwnProperty(t)) {
-              if (r) throw Error("Already loaded patch: " + t);
-            } else if (!e["__Zone_disable_" + t]) {
-              const r = "Zone:" + t;
+              if (r) throw Error('Already loaded patch: ' + t);
+            } else if (!e['__Zone_disable_' + t]) {
+              const r = 'Zone:' + t;
               n(r), (D[t] = i(e, s, O)), o(r, r);
             }
           }
@@ -79,12 +74,11 @@
             return null;
           }
           fork(e) {
-            if (!e) throw new Error("ZoneSpec required!");
+            if (!e) throw new Error('ZoneSpec required!');
             return this._zoneDelegate.fork(this, e);
           }
           wrap(e, t) {
-            if ("function" != typeof e)
-              throw new Error("Expecting function got: " + e);
+            if ('function' != typeof e) throw new Error('Expecting function got: ' + e);
             const n = this._zoneDelegate.intercept(this, e, t),
               o = this;
             return function() {
@@ -114,11 +108,11 @@
           runTask(e, t, n) {
             if (e.zone != this)
               throw new Error(
-                "A task can only be run in the zone of creation! (Creation: " +
+                'A task can only be run in the zone of creation! (Creation: ' +
                   (e.zone || m).name +
-                  "; Execution: " +
+                  '; Execution: ' +
                   this.name +
-                  ")"
+                  ')'
               );
             if (e.state === y && (e.type === S || e.type === Z)) return;
             const o = e.state != v;
@@ -126,10 +120,7 @@
             const r = z;
             (z = e), (P = { parent: P, zone: this });
             try {
-              e.type == Z &&
-                e.data &&
-                !e.data.isPeriodic &&
-                (e.cancelFn = void 0);
+              e.type == Z && e.data && !e.data.isPeriodic && (e.cancelFn = void 0);
               try {
                 return this._zoneDelegate.invokeTask(this, e, t, n);
               } catch (s) {
@@ -140,9 +131,7 @@
                 e.state !== w &&
                 (e.type == S || (e.data && e.data.isPeriodic)
                   ? o && e._transitionTo(b, v)
-                  : ((e.runCount = 0),
-                    this._updateTaskCount(e, -1),
-                    o && e._transitionTo(y, v, y))),
+                  : ((e.runCount = 0), this._updateTaskCount(e, -1), o && e._transitionTo(y, v, y))),
                 (P = P.parent),
                 (z = r);
             }
@@ -164,15 +153,9 @@
             try {
               e = this._zoneDelegate.scheduleTask(this, e);
             } catch (n) {
-              throw (e._transitionTo(w, k, y),
-              this._zoneDelegate.handleError(this, n),
-              n);
+              throw (e._transitionTo(w, k, y), this._zoneDelegate.handleError(this, n), n);
             }
-            return (
-              e._zoneDelegates === t && this._updateTaskCount(e, 1),
-              e.state == k && e._transitionTo(b, k),
-              e
-            );
+            return e._zoneDelegates === t && this._updateTaskCount(e, 1), e.state == k && e._transitionTo(b, k), e;
           }
           scheduleMicroTask(e, t, n, o) {
             return this.scheduleTask(new c(E, e, t, n, o, void 0));
@@ -186,26 +169,19 @@
           cancelTask(e) {
             if (e.zone != this)
               throw new Error(
-                "A task can only be cancelled in the zone of creation! (Creation: " +
+                'A task can only be cancelled in the zone of creation! (Creation: ' +
                   (e.zone || m).name +
-                  "; Execution: " +
+                  '; Execution: ' +
                   this.name +
-                  ")"
+                  ')'
               );
             e._transitionTo(T, b, v);
             try {
               this._zoneDelegate.cancelTask(this, e);
             } catch (t) {
-              throw (e._transitionTo(w, T),
-              this._zoneDelegate.handleError(this, t),
-              t);
+              throw (e._transitionTo(w, T), this._zoneDelegate.handleError(this, t), t);
             }
-            return (
-              this._updateTaskCount(e, -1),
-              e._transitionTo(y, T),
-              (e.runCount = 0),
-              e
-            );
+            return this._updateTaskCount(e, -1), e._transitionTo(y, T), (e.runCount = 0), e;
           }
           _updateTaskCount(e, t) {
             const n = e._zoneDelegates;
@@ -215,7 +191,7 @@
         }
         s.__symbol__ = I;
         const i = {
-          name: "",
+          name: '',
           onHasTask: (e, t, n, o) => e.hasTask(n, o),
           onScheduleTask: (e, t, n, o) => e.scheduleTask(n, o),
           onInvokeTask: (e, t, n, o, r, s) => e.invokeTask(n, o, r, s),
@@ -230,37 +206,23 @@
               (this._forkDlgt = n && (n.onFork ? t : t._forkDlgt)),
               (this._forkCurrZone = n && (n.onFork ? this.zone : t.zone)),
               (this._interceptZS = n && (n.onIntercept ? n : t._interceptZS)),
-              (this._interceptDlgt =
-                n && (n.onIntercept ? t : t._interceptDlgt)),
-              (this._interceptCurrZone =
-                n && (n.onIntercept ? this.zone : t.zone)),
+              (this._interceptDlgt = n && (n.onIntercept ? t : t._interceptDlgt)),
+              (this._interceptCurrZone = n && (n.onIntercept ? this.zone : t.zone)),
               (this._invokeZS = n && (n.onInvoke ? n : t._invokeZS)),
               (this._invokeDlgt = n && (n.onInvoke ? t : t._invokeDlgt)),
               (this._invokeCurrZone = n && (n.onInvoke ? this.zone : t.zone)),
-              (this._handleErrorZS =
-                n && (n.onHandleError ? n : t._handleErrorZS)),
-              (this._handleErrorDlgt =
-                n && (n.onHandleError ? t : t._handleErrorDlgt)),
-              (this._handleErrorCurrZone =
-                n && (n.onHandleError ? this.zone : t.zone)),
-              (this._scheduleTaskZS =
-                n && (n.onScheduleTask ? n : t._scheduleTaskZS)),
-              (this._scheduleTaskDlgt =
-                n && (n.onScheduleTask ? t : t._scheduleTaskDlgt)),
-              (this._scheduleTaskCurrZone =
-                n && (n.onScheduleTask ? this.zone : t.zone)),
-              (this._invokeTaskZS =
-                n && (n.onInvokeTask ? n : t._invokeTaskZS)),
-              (this._invokeTaskDlgt =
-                n && (n.onInvokeTask ? t : t._invokeTaskDlgt)),
-              (this._invokeTaskCurrZone =
-                n && (n.onInvokeTask ? this.zone : t.zone)),
-              (this._cancelTaskZS =
-                n && (n.onCancelTask ? n : t._cancelTaskZS)),
-              (this._cancelTaskDlgt =
-                n && (n.onCancelTask ? t : t._cancelTaskDlgt)),
-              (this._cancelTaskCurrZone =
-                n && (n.onCancelTask ? this.zone : t.zone)),
+              (this._handleErrorZS = n && (n.onHandleError ? n : t._handleErrorZS)),
+              (this._handleErrorDlgt = n && (n.onHandleError ? t : t._handleErrorDlgt)),
+              (this._handleErrorCurrZone = n && (n.onHandleError ? this.zone : t.zone)),
+              (this._scheduleTaskZS = n && (n.onScheduleTask ? n : t._scheduleTaskZS)),
+              (this._scheduleTaskDlgt = n && (n.onScheduleTask ? t : t._scheduleTaskDlgt)),
+              (this._scheduleTaskCurrZone = n && (n.onScheduleTask ? this.zone : t.zone)),
+              (this._invokeTaskZS = n && (n.onInvokeTask ? n : t._invokeTaskZS)),
+              (this._invokeTaskDlgt = n && (n.onInvokeTask ? t : t._invokeTaskDlgt)),
+              (this._invokeTaskCurrZone = n && (n.onInvokeTask ? this.zone : t.zone)),
+              (this._cancelTaskZS = n && (n.onCancelTask ? n : t._cancelTaskZS)),
+              (this._cancelTaskDlgt = n && (n.onCancelTask ? t : t._cancelTaskDlgt)),
+              (this._cancelTaskCurrZone = n && (n.onCancelTask ? this.zone : t.zone)),
               (this._hasTaskZS = null),
               (this._hasTaskDlgt = null),
               (this._hasTaskDlgtOwner = null),
@@ -272,111 +234,62 @@
               (this._hasTaskDlgtOwner = this),
               (this._hasTaskCurrZone = e),
               n.onScheduleTask ||
-                ((this._scheduleTaskZS = i),
-                (this._scheduleTaskDlgt = t),
-                (this._scheduleTaskCurrZone = this.zone)),
+                ((this._scheduleTaskZS = i), (this._scheduleTaskDlgt = t), (this._scheduleTaskCurrZone = this.zone)),
               n.onInvokeTask ||
-                ((this._invokeTaskZS = i),
-                (this._invokeTaskDlgt = t),
-                (this._invokeTaskCurrZone = this.zone)),
+                ((this._invokeTaskZS = i), (this._invokeTaskDlgt = t), (this._invokeTaskCurrZone = this.zone)),
               n.onCancelTask ||
-                ((this._cancelTaskZS = i),
-                (this._cancelTaskDlgt = t),
-                (this._cancelTaskCurrZone = this.zone)));
+                ((this._cancelTaskZS = i), (this._cancelTaskDlgt = t), (this._cancelTaskCurrZone = this.zone)));
           }
           fork(e, t) {
-            return this._forkZS
-              ? this._forkZS.onFork(this._forkDlgt, this.zone, e, t)
-              : new s(e, t);
+            return this._forkZS ? this._forkZS.onFork(this._forkDlgt, this.zone, e, t) : new s(e, t);
           }
           intercept(e, t, n) {
             return this._interceptZS
-              ? this._interceptZS.onIntercept(
-                  this._interceptDlgt,
-                  this._interceptCurrZone,
-                  e,
-                  t,
-                  n
-                )
+              ? this._interceptZS.onIntercept(this._interceptDlgt, this._interceptCurrZone, e, t, n)
               : t;
           }
           invoke(e, t, n, o, r) {
             return this._invokeZS
-              ? this._invokeZS.onInvoke(
-                  this._invokeDlgt,
-                  this._invokeCurrZone,
-                  e,
-                  t,
-                  n,
-                  o,
-                  r
-                )
+              ? this._invokeZS.onInvoke(this._invokeDlgt, this._invokeCurrZone, e, t, n, o, r)
               : t.apply(n, o);
           }
           handleError(e, t) {
             return (
               !this._handleErrorZS ||
-              this._handleErrorZS.onHandleError(
-                this._handleErrorDlgt,
-                this._handleErrorCurrZone,
-                e,
-                t
-              )
+              this._handleErrorZS.onHandleError(this._handleErrorDlgt, this._handleErrorCurrZone, e, t)
             );
           }
           scheduleTask(e, t) {
             let n = t;
             if (this._scheduleTaskZS)
               this._hasTaskZS && n._zoneDelegates.push(this._hasTaskDlgtOwner),
-                (n = this._scheduleTaskZS.onScheduleTask(
-                  this._scheduleTaskDlgt,
-                  this._scheduleTaskCurrZone,
-                  e,
-                  t
-                )) || (n = t);
+                (n = this._scheduleTaskZS.onScheduleTask(this._scheduleTaskDlgt, this._scheduleTaskCurrZone, e, t)) ||
+                  (n = t);
             else if (t.scheduleFn) t.scheduleFn(t);
             else {
-              if (t.type != E) throw new Error("Task is missing scheduleFn.");
+              if (t.type != E) throw new Error('Task is missing scheduleFn.');
               g(t);
             }
             return n;
           }
           invokeTask(e, t, n, o) {
             return this._invokeTaskZS
-              ? this._invokeTaskZS.onInvokeTask(
-                  this._invokeTaskDlgt,
-                  this._invokeTaskCurrZone,
-                  e,
-                  t,
-                  n,
-                  o
-                )
+              ? this._invokeTaskZS.onInvokeTask(this._invokeTaskDlgt, this._invokeTaskCurrZone, e, t, n, o)
               : t.callback.apply(n, o);
           }
           cancelTask(e, t) {
             let n;
             if (this._cancelTaskZS)
-              n = this._cancelTaskZS.onCancelTask(
-                this._cancelTaskDlgt,
-                this._cancelTaskCurrZone,
-                e,
-                t
-              );
+              n = this._cancelTaskZS.onCancelTask(this._cancelTaskDlgt, this._cancelTaskCurrZone, e, t);
             else {
-              if (!t.cancelFn) throw Error("Task is not cancelable");
+              if (!t.cancelFn) throw Error('Task is not cancelable');
               n = t.cancelFn(t);
             }
             return n;
           }
           hasTask(e, t) {
             try {
-              this._hasTaskZS &&
-                this._hasTaskZS.onHasTask(
-                  this._hasTaskDlgt,
-                  this._hasTaskCurrZone,
-                  e,
-                  t
-                );
+              this._hasTaskZS && this._hasTaskZS.onHasTask(this._hasTaskDlgt, this._hasTaskCurrZone, e, t);
             } catch (n) {
               this.handleError(e, n);
             }
@@ -385,8 +298,7 @@
             const n = this._taskCounts,
               o = n[e],
               r = (n[e] = o + t);
-            if (r < 0)
-              throw new Error("More tasks executed then were scheduled.");
+            if (r < 0) throw new Error('More tasks executed then were scheduled.');
             (0 != o && 0 != r) ||
               this.hasTask(this.zone, {
                 microTask: n.microTask > 0,
@@ -401,7 +313,7 @@
             (this._zone = null),
               (this.runCount = 0),
               (this._zoneDelegates = null),
-              (this._state = "notScheduled"),
+              (this._state = 'notScheduled'),
               (this.type = t),
               (this.source = n),
               (this.data = r),
@@ -436,10 +348,8 @@
           _transitionTo(e, t, n) {
             if (this._state !== t && this._state !== n)
               throw new Error(
-                `${this.type} '${
-                  this.source
-                }': can not transition to '${e}', expecting state '${t}'${
-                  n ? " or '" + n + "'" : ""
+                `${this.type} '${this.source}': can not transition to '${e}', expecting state '${t}'${
+                  n ? " or '" + n + "'" : ''
                 }, was '${this._state}'.`
               );
             (this._state = e), e == y && (this._zoneDelegates = null);
@@ -459,9 +369,9 @@
             };
           }
         }
-        const l = I("setTimeout"),
-          u = I("Promise"),
-          h = I("then");
+        const l = I('setTimeout'),
+          u = I('Promise'),
+          h = I('then');
         let p,
           f = [],
           d = !1;
@@ -490,16 +400,16 @@
             O.microtaskDrainDone(), (d = !1);
           }
         }
-        const m = { name: "NO ZONE" },
-          y = "notScheduled",
-          k = "scheduling",
-          b = "scheduled",
-          v = "running",
-          T = "canceling",
-          w = "unknown",
-          E = "microTask",
-          Z = "macroTask",
-          S = "eventTask",
+        const m = { name: 'NO ZONE' },
+          y = 'notScheduled',
+          k = 'scheduling',
+          b = 'scheduled',
+          v = 'running',
+          T = 'canceling',
+          w = 'unknown',
+          E = 'microTask',
+          Z = 'macroTask',
+          S = 'eventTask',
           D = {},
           O = {
             symbol: I,
@@ -507,7 +417,7 @@
             onUnhandledError: C,
             microtaskDrainDone: C,
             scheduleMicroTask: g,
-            showUncaughtError: () => !s[I("ignoreConsoleErrorUncaughtError")],
+            showUncaughtError: () => !s[I('ignoreConsoleErrorUncaughtError')],
             patchEventTarget: () => [],
             patchOnProperties: C,
             patchMethod: () => C,
@@ -515,7 +425,7 @@
             patchThen: () => C,
             patchMacroTask: () => C,
             setNativePromise: e => {
-              e && "function" == typeof e.resolve && (p = e.resolve(0));
+              e && 'function' == typeof e.resolve && (p = e.resolve(0));
             },
             patchEventPrototype: () => C,
             isIEOrEdge: () => !1,
@@ -536,34 +446,30 @@
           j = 0;
         function C() {}
         function I(e) {
-          return "__zone_symbol__" + e;
+          return '__zone_symbol__' + e;
         }
-        o("Zone", "Zone"), (e.Zone = s);
-      })(
-        ("undefined" != typeof window && window) ||
-          ("undefined" != typeof self && self) ||
-          global
-      ),
-        Zone.__load_patch("ZoneAwarePromise", (e, t, n) => {
+        o('Zone', 'Zone'), (e.Zone = s);
+      })(('undefined' != typeof window && window) || ('undefined' != typeof self && self) || global),
+        Zone.__load_patch('ZoneAwarePromise', (e, t, n) => {
           const o = Object.getOwnPropertyDescriptor,
             r = Object.defineProperty,
             s = n.symbol,
             i = [],
-            a = s("Promise"),
-            c = s("then"),
-            l = "__creationTrace__";
+            a = s('Promise'),
+            c = s('then'),
+            l = '__creationTrace__';
           (n.onUnhandledError = e => {
             if (n.showUncaughtError()) {
               const t = e && e.rejection;
               t
                 ? console.error(
-                    "Unhandled Promise rejection:",
+                    'Unhandled Promise rejection:',
                     t instanceof Error ? t.message : t,
-                    "; Zone:",
+                    '; Zone:',
                     e.zone.name,
-                    "; Task:",
+                    '; Task:',
                     e.task && e.task.source,
-                    "; Value:",
+                    '; Value:',
                     t,
                     t instanceof Error ? t.stack : void 0
                   )
@@ -583,12 +489,12 @@
                   }
                 }
             });
-          const u = s("unhandledPromiseRejectionHandler");
+          const u = s('unhandledPromiseRejectionHandler');
           function h(e) {
             n.onUnhandledError(e);
             try {
               const n = t[u];
-              n && "function" == typeof n && n.call(this, e);
+              n && 'function' == typeof n && n.call(this, e);
             } catch (o) {}
           }
           function p(e) {
@@ -600,12 +506,12 @@
           function d(e) {
             return R.reject(e);
           }
-          const g = s("state"),
-            _ = s("value"),
-            m = s("finally"),
-            y = s("parentPromiseValue"),
-            k = s("parentPromiseState"),
-            b = "Promise.then",
+          const g = s('state'),
+            _ = s('value'),
+            m = s('finally'),
+            y = s('parentPromiseValue'),
+            k = s('parentPromiseState'),
+            b = 'Promise.then',
             v = null,
             T = !0,
             w = !1,
@@ -627,16 +533,15 @@
                 };
               };
             },
-            D = "Promise resolved with itself",
-            O = s("currentTaskTrace");
+            D = 'Promise resolved with itself',
+            O = s('currentTaskTrace');
           function P(e, o, s) {
             const a = S();
             if (e === s) throw new TypeError(D);
             if (e[g] === v) {
               let h = null;
               try {
-                ("object" != typeof s && "function" != typeof s) ||
-                  (h = s && s.then);
+                ('object' != typeof s && 'function' != typeof s) || (h = s && s.then);
               } catch (u) {
                 return (
                   a(() => {
@@ -645,15 +550,9 @@
                   e
                 );
               }
-              if (
-                o !== w &&
-                s instanceof R &&
-                s.hasOwnProperty(g) &&
-                s.hasOwnProperty(_) &&
-                s[g] !== v
-              )
+              if (o !== w && s instanceof R && s.hasOwnProperty(g) && s.hasOwnProperty(_) && s[g] !== v)
                 j(s), P(e, s[g], s[_]);
-              else if (o !== w && "function" == typeof h)
+              else if (o !== w && 'function' == typeof h)
                 try {
                   h.call(s, a(Z(e, o)), a(Z(e, !1)));
                 } catch (u) {
@@ -665,37 +564,23 @@
                 e[g] = o;
                 const a = e[_];
                 if (
-                  ((e[_] = s),
-                  e[m] === m && o === T && ((e[g] = e[k]), (e[_] = e[y])),
-                  o === w && s instanceof Error)
+                  ((e[_] = s), e[m] === m && o === T && ((e[g] = e[k]), (e[_] = e[y])), o === w && s instanceof Error)
                 ) {
-                  const e =
-                    t.currentTask &&
-                    t.currentTask.data &&
-                    t.currentTask.data[l];
-                  e &&
-                    r(s, O, {
-                      configurable: !0,
-                      enumerable: !1,
-                      writable: !0,
-                      value: e
-                    });
+                  const e = t.currentTask && t.currentTask.data && t.currentTask.data[l];
+                  e && r(s, O, { configurable: !0, enumerable: !1, writable: !0, value: e });
                 }
-                for (let t = 0; t < a.length; )
-                  C(e, a[t++], a[t++], a[t++], a[t++]);
+                for (let t = 0; t < a.length; ) C(e, a[t++], a[t++], a[t++], a[t++]);
                 if (0 == a.length && o == w) {
                   e[g] = E;
                   try {
                     throw new Error(
-                      "Uncaught (in promise): " +
+                      'Uncaught (in promise): ' +
                         ((c = s) && c.toString === Object.prototype.toString
-                          ? ((c.constructor && c.constructor.name) || "") +
-                            ": " +
-                            JSON.stringify(c)
+                          ? ((c.constructor && c.constructor.name) || '') + ': ' + JSON.stringify(c)
                           : c
                           ? c.toString()
                           : Object.prototype.toString.call(c)) +
-                        (s && s.stack ? "\n" + s.stack : "")
+                        (s && s.stack ? '\n' + s.stack : '')
                     );
                   } catch (u) {
                     const o = u;
@@ -712,30 +597,21 @@
             var c;
             return e;
           }
-          const z = s("rejectionHandledHandler");
+          const z = s('rejectionHandledHandler');
           function j(e) {
             if (e[g] === E) {
               try {
                 const o = t[z];
-                o &&
-                  "function" == typeof o &&
-                  o.call(this, { rejection: e[_], promise: e });
+                o && 'function' == typeof o && o.call(this, { rejection: e[_], promise: e });
               } catch (n) {}
               e[g] = w;
-              for (let t = 0; t < i.length; t++)
-                e === i[t].promise && i.splice(t, 1);
+              for (let t = 0; t < i.length; t++) e === i[t].promise && i.splice(t, 1);
             }
           }
           function C(e, t, n, o, r) {
             j(e);
             const s = e[g],
-              i = s
-                ? "function" == typeof o
-                  ? o
-                  : f
-                : "function" == typeof r
-                ? r
-                : d;
+              i = s ? ('function' == typeof o ? o : f) : 'function' == typeof r ? r : d;
             t.scheduleMicroTask(
               b,
               () => {
@@ -743,11 +619,7 @@
                   const r = e[_],
                     a = n && m === n[m];
                   a && ((n[y] = r), (n[k] = s));
-                  const c = t.run(
-                    i,
-                    void 0,
-                    a && i !== d && i !== f ? [] : [r]
-                  );
+                  const c = t.run(i, void 0, a && i !== d && i !== f ? [] : [r]);
                   P(n, !0, c);
                 } catch (o) {
                   P(n, !1, o);
@@ -756,12 +628,11 @@
               n
             );
           }
-          const I = "function ZoneAwarePromise() { [native code] }";
+          const I = 'function ZoneAwarePromise() { [native code] }';
           class R {
             constructor(e) {
               const t = this;
-              if (!(t instanceof R))
-                throw new Error("Must be an instanceof Promise.");
+              if (!(t instanceof R)) throw new Error('Must be an instanceof Promise.');
               (t[g] = v), (t[_] = []);
               try {
                 e && e(Z(t, T), Z(t, w));
@@ -814,14 +685,12 @@
               return 0 == (r -= 2) && t(i), o;
             }
             get [Symbol.toStringTag]() {
-              return "Promise";
+              return 'Promise';
             }
             then(e, n) {
               const o = new this.constructor(null),
                 r = t.current;
-              return (
-                this[g] == v ? this[_].push(r, o, e, n) : C(this, r, o, e, n), o
-              );
+              return this[g] == v ? this[_].push(r, o, e, n) : C(this, r, o, e, n), o;
             }
             catch(e) {
               return this.then(null, e);
@@ -830,18 +699,13 @@
               const n = new this.constructor(null);
               n[m] = m;
               const o = t.current;
-              return (
-                this[g] == v ? this[_].push(o, n, e, e) : C(this, o, n, e, e), n
-              );
+              return this[g] == v ? this[_].push(o, n, e, e) : C(this, o, n, e, e), n;
             }
           }
-          (R.resolve = R.resolve),
-            (R.reject = R.reject),
-            (R.race = R.race),
-            (R.all = R.all);
+          (R.resolve = R.resolve), (R.reject = R.reject), (R.race = R.race), (R.all = R.all);
           const x = (e[a] = e.Promise),
-            M = t.__symbol__("ZoneAwarePromise");
-          let L = o(e, "Promise");
+            M = t.__symbol__('ZoneAwarePromise');
+          let L = o(e, 'Promise');
           (L && !L.configurable) ||
             (L && delete L.writable,
             L && delete L.value,
@@ -850,16 +714,14 @@
               return e[M] ? e[M] : e[a];
             }),
             (L.set = function(t) {
-              t === R
-                ? (e[M] = t)
-                : ((e[a] = t), t.prototype[c] || A(t), n.setNativePromise(t));
+              t === R ? (e[M] = t) : ((e[a] = t), t.prototype[c] || A(t), n.setNativePromise(t));
             }),
-            r(e, "Promise", L)),
+            r(e, 'Promise', L)),
             (e.Promise = R);
-          const N = s("thenPatched");
+          const N = s('thenPatched');
           function A(e) {
             const t = e.prototype,
-              n = o(t, "then");
+              n = o(t, 'then');
             if (n && (!1 === n.writable || !n.configurable)) return;
             const r = t.then;
             (t[c] = r),
@@ -873,8 +735,8 @@
           if (((n.patchThen = A), x)) {
             A(x);
             const t = e.fetch;
-            "function" == typeof t &&
-              ((e[n.symbol("fetch")] = t),
+            'function' == typeof t &&
+              ((e[n.symbol('fetch')] = t),
               (e.fetch = (function(e) {
                 return function() {
                   let t = e.apply(this, arguments);
@@ -884,20 +746,20 @@
                 };
               })(t)));
           }
-          return (Promise[t.__symbol__("uncaughtPromiseErrors")] = i), R;
+          return (Promise[t.__symbol__('uncaughtPromiseErrors')] = i), R;
         });
       const n = Object.getOwnPropertyDescriptor,
         o = Object.defineProperty,
         r = Object.getPrototypeOf,
         s = Object.create,
         i = Array.prototype.slice,
-        a = "addEventListener",
-        c = "removeEventListener",
+        a = 'addEventListener',
+        c = 'removeEventListener',
         l = Zone.__symbol__(a),
         u = Zone.__symbol__(c),
-        h = "true",
-        p = "false",
-        f = "__zone_symbol__";
+        h = 'true',
+        p = 'false',
+        f = '__zone_symbol__';
       function d(e, t) {
         return Zone.current.wrap(e, t);
       }
@@ -905,87 +767,54 @@
         return Zone.current.scheduleMacroTask(e, t, n, o, r);
       }
       const _ = Zone.__symbol__,
-        m = "undefined" != typeof window,
+        m = 'undefined' != typeof window,
         y = m ? window : void 0,
-        k = (m && y) || ("object" == typeof self && self) || global,
-        b = "removeAttribute",
+        k = (m && y) || ('object' == typeof self && self) || global,
+        b = 'removeAttribute',
         v = [null];
       function T(e, t) {
-        for (let n = e.length - 1; n >= 0; n--)
-          "function" == typeof e[n] && (e[n] = d(e[n], t + "_" + n));
+        for (let n = e.length - 1; n >= 0; n--) 'function' == typeof e[n] && (e[n] = d(e[n], t + '_' + n));
         return e;
       }
       function w(e) {
-        return (
-          !e ||
-          (!1 !== e.writable &&
-            !("function" == typeof e.get && void 0 === e.set))
-        );
+        return !e || (!1 !== e.writable && !('function' == typeof e.get && void 0 === e.set));
       }
-      const E =
-          "undefined" != typeof WorkerGlobalScope &&
-          self instanceof WorkerGlobalScope,
-        Z =
-          !("nw" in k) &&
-          void 0 !== k.process &&
-          "[object process]" === {}.toString.call(k.process),
+      const E = 'undefined' != typeof WorkerGlobalScope && self instanceof WorkerGlobalScope,
+        Z = !('nw' in k) && void 0 !== k.process && '[object process]' === {}.toString.call(k.process),
         S = !Z && !E && !(!m || !y.HTMLElement),
-        D =
-          void 0 !== k.process &&
-          "[object process]" === {}.toString.call(k.process) &&
-          !E &&
-          !(!m || !y.HTMLElement),
+        D = void 0 !== k.process && '[object process]' === {}.toString.call(k.process) && !E && !(!m || !y.HTMLElement),
         O = {},
         P = function(e) {
           if (!(e = e || k.event)) return;
           let t = O[e.type];
-          t || (t = O[e.type] = _("ON_PROPERTY" + e.type));
+          t || (t = O[e.type] = _('ON_PROPERTY' + e.type));
           const n = this || e.target || k,
             o = n[t];
           let r;
-          if (S && n === y && "error" === e.type) {
+          if (S && n === y && 'error' === e.type) {
             const t = e;
-            !0 ===
-              (r =
-                o &&
-                o.call(
-                  this,
-                  t.message,
-                  t.filename,
-                  t.lineno,
-                  t.colno,
-                  t.error
-                )) && e.preventDefault();
-          } else
-            null == (r = o && o.apply(this, arguments)) ||
-              r ||
-              e.preventDefault();
+            !0 === (r = o && o.call(this, t.message, t.filename, t.lineno, t.colno, t.error)) && e.preventDefault();
+          } else null == (r = o && o.apply(this, arguments)) || r || e.preventDefault();
           return r;
         };
       function z(e, t, r) {
         let s = n(e, t);
-        if (
-          (!s && r && n(r, t) && (s = { enumerable: !0, configurable: !0 }),
-          !s || !s.configurable)
-        )
-          return;
-        const i = _("on" + t + "patched");
+        if ((!s && r && n(r, t) && (s = { enumerable: !0, configurable: !0 }), !s || !s.configurable)) return;
+        const i = _('on' + t + 'patched');
         if (e.hasOwnProperty(i) && e[i]) return;
         delete s.writable, delete s.value;
         const a = s.get,
           c = s.set,
           l = t.substr(2);
         let u = O[l];
-        u || (u = O[l] = _("ON_PROPERTY" + l)),
+        u || (u = O[l] = _('ON_PROPERTY' + l)),
           (s.set = function(t) {
             let n = this;
             n || e !== k || (n = k),
               n &&
                 (n[u] && n.removeEventListener(l, P),
                 c && c.apply(n, v),
-                "function" == typeof t
-                  ? ((n[u] = t), n.addEventListener(l, P, !1))
-                  : (n[u] = null));
+                'function' == typeof t ? ((n[u] = t), n.addEventListener(l, P, !1)) : (n[u] = null));
           }),
           (s.get = function() {
             let n = this;
@@ -994,12 +823,7 @@
             if (o) return o;
             if (a) {
               let e = a && a.call(this);
-              if (e)
-                return (
-                  s.set.call(this, e),
-                  "function" == typeof n[b] && n.removeAttribute(t),
-                  e
-                );
+              if (e) return s.set.call(this, e), 'function' == typeof n[b] && n.removeAttribute(t), e;
             }
             return null;
           }),
@@ -1007,14 +831,14 @@
           (e[i] = !0);
       }
       function j(e, t, n) {
-        if (t) for (let o = 0; o < t.length; o++) z(e, "on" + t[o], n);
+        if (t) for (let o = 0; o < t.length; o++) z(e, 'on' + t[o], n);
         else {
           const t = [];
-          for (const n in e) "on" == n.substr(0, 2) && t.push(n);
+          for (const n in e) 'on' == n.substr(0, 2) && t.push(n);
           for (let o = 0; o < t.length; o++) z(e, t[o], n);
         }
       }
-      const C = _("originalInstance");
+      const C = _('originalInstance');
       function I(e) {
         const t = k[e];
         if (!t) return;
@@ -1038,32 +862,29 @@
                 this[C] = new t(n[0], n[1], n[2], n[3]);
                 break;
               default:
-                throw new Error("Arg list too long.");
+                throw new Error('Arg list too long.');
             }
           }),
           L(k[e], t);
         const n = new t(function() {});
         let r;
         for (r in n)
-          ("XMLHttpRequest" === e && "responseBlob" === r) ||
+          ('XMLHttpRequest' === e && 'responseBlob' === r) ||
             (function(t) {
-              "function" == typeof n[t]
+              'function' == typeof n[t]
                 ? (k[e].prototype[t] = function() {
                     return this[C][t].apply(this[C], arguments);
                   })
                 : o(k[e].prototype, t, {
                     set: function(n) {
-                      "function" == typeof n
-                        ? ((this[C][t] = d(n, e + "." + t)), L(this[C][t], n))
-                        : (this[C][t] = n);
+                      'function' == typeof n ? ((this[C][t] = d(n, e + '.' + t)), L(this[C][t], n)) : (this[C][t] = n);
                     },
                     get: function() {
                       return this[C][t];
                     }
                   });
             })(r);
-        for (r in t)
-          "prototype" !== r && t.hasOwnProperty(r) && (k[e][r] = t[r]);
+        for (r in t) 'prototype' !== r && t.hasOwnProperty(r) && (k[e][r] = t[r]);
       }
       let R = !1;
       function x(e, t, o) {
@@ -1081,7 +902,7 @@
             R &&
               ((c = a),
               (l = s[t]),
-              "function" == typeof Object.getOwnPropertySymbols &&
+              'function' == typeof Object.getOwnPropertySymbols &&
                 Object.getOwnPropertySymbols(c).forEach(e => {
                   const t = Object.getOwnPropertyDescriptor(c, e);
                   Object.defineProperty(l, e, {
@@ -1089,8 +910,7 @@
                       return c[e];
                     },
                     set: function(n) {
-                      (!t || (t.writable && "function" == typeof t.set)) &&
-                        (c[e] = n);
+                      (!t || (t.writable && 'function' == typeof t.set)) && (c[e] = n);
                     },
                     enumerable: !t || t.enumerable,
                     configurable: !t || t.configurable
@@ -1118,14 +938,12 @@
           e =>
             function(t, o) {
               const s = n(t, o);
-              return s.cbIdx >= 0 && "function" == typeof o[s.cbIdx]
-                ? g(s.name, o[s.cbIdx], s, r)
-                : e.apply(t, o);
+              return s.cbIdx >= 0 && 'function' == typeof o[s.cbIdx] ? g(s.name, o[s.cbIdx], s, r) : e.apply(t, o);
             }
         );
       }
       function L(e, t) {
-        e[_("OriginalDelegate")] = t;
+        e[_('OriginalDelegate')] = t;
       }
       let N = !1,
         A = !1;
@@ -1134,25 +952,19 @@
         N = !0;
         try {
           const t = y.navigator.userAgent;
-          (-1 === t.indexOf("MSIE ") &&
-            -1 === t.indexOf("Trident/") &&
-            -1 === t.indexOf("Edge/")) ||
-            (A = !0);
+          (-1 === t.indexOf('MSIE ') && -1 === t.indexOf('Trident/') && -1 === t.indexOf('Edge/')) || (A = !0);
         } catch (e) {}
         return A;
       }
-      Zone.__load_patch("toString", e => {
+      Zone.__load_patch('toString', e => {
         const t = Function.prototype.toString,
-          n = _("OriginalDelegate"),
-          o = _("Promise"),
-          r = _("Error"),
+          n = _('OriginalDelegate'),
+          o = _('Promise'),
+          r = _('Error'),
           s = function() {
-            if ("function" == typeof this) {
+            if ('function' == typeof this) {
               const s = this[n];
-              if (s)
-                return "function" == typeof s
-                  ? t.call(s)
-                  : Object.prototype.toString.call(s);
+              if (s) return 'function' == typeof s ? t.call(s) : Object.prototype.toString.call(s);
               if (this === Promise) {
                 const n = e[o];
                 if (n) return t.call(n);
@@ -1167,19 +979,18 @@
         (s[n] = t), (Function.prototype.toString = s);
         const i = Object.prototype.toString;
         Object.prototype.toString = function() {
-          return this instanceof Promise ? "[object Promise]" : i.call(this);
+          return this instanceof Promise ? '[object Promise]' : i.call(this);
         };
       });
       let H = !1;
-      if ("undefined" != typeof window)
+      if ('undefined' != typeof window)
         try {
-          const e = Object.defineProperty({}, "passive", {
+          const e = Object.defineProperty({}, 'passive', {
             get: function() {
               H = !0;
             }
           });
-          window.addEventListener("test", e, e),
-            window.removeEventListener("test", e, e);
+          window.addEventListener('test', e, e), window.removeEventListener('test', e, e);
         } catch (Te) {
           H = !1;
         }
@@ -1187,33 +998,26 @@
         q = {},
         B = {},
         $ = /^__zone_symbol__(\w+)(true|false)$/,
-        U = "__zone_symbol__propagationStopped";
+        U = '__zone_symbol__propagationStopped';
       function W(e, t, n) {
         const o = (n && n.add) || a,
           s = (n && n.rm) || c,
-          i = (n && n.listeners) || "eventListeners",
-          l = (n && n.rmAll) || "removeAllListeners",
+          i = (n && n.listeners) || 'eventListeners',
+          l = (n && n.rmAll) || 'removeAllListeners',
           u = _(o),
-          d = "." + o + ":",
-          g = "prependListener",
-          m = "." + g + ":",
+          d = '.' + o + ':',
+          g = 'prependListener',
+          m = '.' + g + ':',
           y = function(e, t, n) {
             if (e.isRemoved) return;
             const o = e.callback;
-            "object" == typeof o &&
-              o.handleEvent &&
-              ((e.callback = e => o.handleEvent(e)), (e.originalDelegate = o)),
+            'object' == typeof o && o.handleEvent && ((e.callback = e => o.handleEvent(e)), (e.originalDelegate = o)),
               e.invoke(e, t, [n]);
             const r = e.options;
             r &&
-              "object" == typeof r &&
+              'object' == typeof r &&
               r.once &&
-              t[s].call(
-                t,
-                n.type,
-                e.originalDelegate ? e.originalDelegate : e.callback,
-                r
-              );
+              t[s].call(t, n.type, e.originalDelegate ? e.originalDelegate : e.callback, r);
           },
           k = function(t) {
             if (!(t = t || e.event)) return;
@@ -1223,8 +1027,7 @@
               if (1 === o.length) y(o[0], n, t);
               else {
                 const e = o.slice();
-                for (let o = 0; o < e.length && (!t || !0 !== t[U]); o++)
-                  y(e[o], n, t);
+                for (let o = 0; o < e.length && (!t || !0 !== t[U]); o++) y(e[o], n, t);
               }
           },
           b = function(t) {
@@ -1235,8 +1038,7 @@
               if (1 === o.length) y(o[0], n, t);
               else {
                 const e = o.slice();
-                for (let o = 0; o < e.length && (!t || !0 !== t[U]); o++)
-                  y(e[o], n, t);
+                for (let o = 0; o < e.length && (!t || !0 !== t[U]); o++) y(e[o], n, t);
               }
           };
         function v(t, n) {
@@ -1261,28 +1063,17 @@
           let z;
           function j(e) {
             H ||
-              "boolean" == typeof E.options ||
+              'boolean' == typeof E.options ||
               null == E.options ||
               ((e.options = !!E.options.capture), (E.options = e.options));
           }
           n && n.prepend && (z = T[_(n.prepend)] = T[n.prepend]);
           const C = a
               ? function(e) {
-                  if (!E.isExisting)
-                    return (
-                      j(e),
-                      S.call(
-                        E.target,
-                        E.eventName,
-                        E.capture ? b : k,
-                        E.options
-                      )
-                    );
+                  if (!E.isExisting) return j(e), S.call(E.target, E.eventName, E.capture ? b : k, E.options);
                 }
               : function(e) {
-                  return (
-                    j(e), S.call(E.target, E.eventName, e.invoke, E.options)
-                  );
+                  return j(e), S.call(E.target, E.eventName, e.invoke, E.options);
                 },
             I = a
               ? function(e) {
@@ -1296,18 +1087,11 @@
                         if (o[r] === e) {
                           o.splice(r, 1),
                             (e.isRemoved = !0),
-                            0 === o.length &&
-                              ((e.allRemoved = !0), (e.target[n] = null));
+                            0 === o.length && ((e.allRemoved = !0), (e.target[n] = null));
                           break;
                         }
                   }
-                  if (e.allRemoved)
-                    return D.call(
-                      e.target,
-                      e.eventName,
-                      e.capture ? b : k,
-                      e.options
-                    );
+                  if (e.allRemoved) return D.call(e.target, e.eventName, e.capture ? b : k, e.options);
                 }
               : function(e) {
                   return D.call(e.target, e.eventName, e.invoke, e.options);
@@ -1317,30 +1101,24 @@
                 ? n.diff
                 : function(e, t) {
                     const n = typeof t;
-                    return (
-                      ("function" === n && e.callback === t) ||
-                      ("object" === n && e.originalDelegate === t)
-                    );
+                    return ('function' === n && e.callback === t) || ('object' === n && e.originalDelegate === t);
                   },
-            x = Zone[Zone.__symbol__("BLACK_LISTED_EVENTS")],
+            x = Zone[Zone.__symbol__('BLACK_LISTED_EVENTS')],
             M = function(t, n, o, r, s = !1, i = !1) {
               return function() {
                 const l = this || e,
                   u = arguments[0];
                 let d = arguments[1];
                 if (!d) return t.apply(this, arguments);
-                if (Z && "uncaughtException" === u)
-                  return t.apply(this, arguments);
+                if (Z && 'uncaughtException' === u) return t.apply(this, arguments);
                 let g = !1;
-                if ("function" != typeof d) {
+                if ('function' != typeof d) {
                   if (!d.handleEvent) return t.apply(this, arguments);
                   g = !0;
                 }
                 if (c && !c(t, d, l, arguments)) return;
                 const _ = arguments[2];
-                if (x)
-                  for (let e = 0; e < x.length; e++)
-                    if (u === x[e]) return t.apply(this, arguments);
+                if (x) for (let e = 0; e < x.length; e++) if (u === x[e]) return t.apply(this, arguments);
                 let m,
                   k = !1;
                 void 0 === _
@@ -1365,8 +1143,7 @@
                   D = l[T],
                   O = !1;
                 if (D) {
-                  if (((O = !0), y))
-                    for (let e = 0; e < D.length; e++) if (R(D[e], d)) return;
+                  if (((O = !0), y)) for (let e = 0; e < D.length; e++) if (R(D[e], d)) return;
                 } else D = l[T] = [];
                 const P = l.constructor.name,
                   z = B[P];
@@ -1385,7 +1162,7 @@
                   (E.target = null),
                   j && (j.taskData = null),
                   k && (_.once = !0),
-                  (H || "boolean" != typeof C.options) && (C.options = _),
+                  (H || 'boolean' != typeof C.options) && (C.options = _),
                   (C.target = l),
                   (C.capture = m),
                   (C.eventName = u),
@@ -1413,8 +1190,7 @@
                 n = arguments[0],
                 o = arguments[2];
               let r;
-              r =
-                void 0 !== o && (!0 === o || (!1 !== o && !!o && !!o.capture));
+              r = void 0 !== o && (!0 === o || (!1 !== o && !!o && !!o.capture));
               const s = arguments[1];
               if (!s) return D.apply(this, arguments);
               if (c && !c(D, s, t, arguments)) return;
@@ -1459,24 +1235,14 @@
                     const e = o.slice();
                     for (let t = 0; t < e.length; t++) {
                       const o = e[t];
-                      this[s].call(
-                        this,
-                        n,
-                        o.originalDelegate ? o.originalDelegate : o.callback,
-                        o.options
-                      );
+                      this[s].call(this, n, o.originalDelegate ? o.originalDelegate : o.callback, o.options);
                     }
                   }
                   if (r) {
                     const e = r.slice();
                     for (let t = 0; t < e.length; t++) {
                       const o = e[t];
-                      this[s].call(
-                        this,
-                        n,
-                        o.originalDelegate ? o.originalDelegate : o.callback,
-                        o.options
-                      );
+                      this[s].call(this, n, o.originalDelegate ? o.originalDelegate : o.callback, o.options);
                     }
                   }
                 }
@@ -1485,9 +1251,9 @@
                 for (let t = 0; t < e.length; t++) {
                   const n = $.exec(e[t]);
                   let o = n && n[1];
-                  o && "removeListener" !== o && this[l].call(this, o);
+                  o && 'removeListener' !== o && this[l].call(this, o);
                 }
-                this[l].call(this, "removeListener");
+                this[l].call(this, 'removeListener');
               }
               if (v) return this;
             }),
@@ -1520,7 +1286,7 @@
           n.prototype &&
           t.patchMethod(
             n.prototype,
-            "stopImmediatePropagation",
+            'stopImmediatePropagation',
             e =>
               function(t, n) {
                 (t[U] = !0), e && e.apply(t, n);
@@ -1541,8 +1307,7 @@
                 if (s.hasOwnProperty(t)) {
                   const n = e.ObjectGetOwnPropertyDescriptor(s, t);
                   n && n.value
-                    ? ((n.value = e.wrapWithCurrentZone(n.value, r)),
-                      e._redefineProperty(a.prototype, t, n))
+                    ? ((n.value = e.wrapWithCurrentZone(n.value, r)), e._redefineProperty(a.prototype, t, n))
                     : s[t] && (s[t] = e.wrapWithCurrentZone(s[t], r));
                 } else s[t] && (s[t] = e.wrapWithCurrentZone(s[t], r));
               }),
@@ -1552,11 +1317,10 @@
           e.attachOriginToPatched(t[o], i);
       }
       const Y = Zone.__symbol__,
-        K = (Object[Y("defineProperty")] = Object.defineProperty),
-        Q = (Object[Y("getOwnPropertyDescriptor")] =
-          Object.getOwnPropertyDescriptor),
+        K = (Object[Y('defineProperty')] = Object.defineProperty),
+        Q = (Object[Y('getOwnPropertyDescriptor')] = Object.getOwnPropertyDescriptor),
         ee = Object.create,
-        te = Y("unconfigurables");
+        te = Y('unconfigurables');
       function ne(e, t, n) {
         const o = n.configurable;
         return se(e, t, (n = re(e, t, n)), o);
@@ -1568,10 +1332,7 @@
         return (
           Object.isFrozen(n) || (n.configurable = !0),
           n.configurable ||
-            (e[te] ||
-              Object.isFrozen(e) ||
-              K(e, te, { writable: !0, value: {} }),
-            e[te] && (e[te][t] = !0)),
+            (e[te] || Object.isFrozen(e) || K(e, te, { writable: !0, value: {} }), e[te] && (e[te][t] = !0)),
           n
         );
       }
@@ -1597,275 +1358,238 @@
         }
       }
       const ie = [
-          "absolutedeviceorientation",
-          "afterinput",
-          "afterprint",
-          "appinstalled",
-          "beforeinstallprompt",
-          "beforeprint",
-          "beforeunload",
-          "devicelight",
-          "devicemotion",
-          "deviceorientation",
-          "deviceorientationabsolute",
-          "deviceproximity",
-          "hashchange",
-          "languagechange",
-          "message",
-          "mozbeforepaint",
-          "offline",
-          "online",
-          "paint",
-          "pageshow",
-          "pagehide",
-          "popstate",
-          "rejectionhandled",
-          "storage",
-          "unhandledrejection",
-          "unload",
-          "userproximity",
-          "vrdisplyconnected",
-          "vrdisplaydisconnected",
-          "vrdisplaypresentchange"
+          'absolutedeviceorientation',
+          'afterinput',
+          'afterprint',
+          'appinstalled',
+          'beforeinstallprompt',
+          'beforeprint',
+          'beforeunload',
+          'devicelight',
+          'devicemotion',
+          'deviceorientation',
+          'deviceorientationabsolute',
+          'deviceproximity',
+          'hashchange',
+          'languagechange',
+          'message',
+          'mozbeforepaint',
+          'offline',
+          'online',
+          'paint',
+          'pageshow',
+          'pagehide',
+          'popstate',
+          'rejectionhandled',
+          'storage',
+          'unhandledrejection',
+          'unload',
+          'userproximity',
+          'vrdisplyconnected',
+          'vrdisplaydisconnected',
+          'vrdisplaypresentchange'
         ],
-        ae = [
-          "encrypted",
-          "waitingforkey",
-          "msneedkey",
-          "mozinterruptbegin",
-          "mozinterruptend"
-        ],
-        ce = ["load"],
-        le = [
-          "blur",
-          "error",
-          "focus",
-          "load",
-          "resize",
-          "scroll",
-          "messageerror"
-        ],
-        ue = ["bounce", "finish", "start"],
-        he = [
-          "loadstart",
-          "progress",
-          "abort",
-          "error",
-          "load",
-          "progress",
-          "timeout",
-          "loadend",
-          "readystatechange"
-        ],
-        pe = [
-          "upgradeneeded",
-          "complete",
-          "abort",
-          "success",
-          "error",
-          "blocked",
-          "versionchange",
-          "close"
-        ],
-        fe = ["close", "error", "open", "message"],
-        de = ["error", "message"],
+        ae = ['encrypted', 'waitingforkey', 'msneedkey', 'mozinterruptbegin', 'mozinterruptend'],
+        ce = ['load'],
+        le = ['blur', 'error', 'focus', 'load', 'resize', 'scroll', 'messageerror'],
+        ue = ['bounce', 'finish', 'start'],
+        he = ['loadstart', 'progress', 'abort', 'error', 'load', 'progress', 'timeout', 'loadend', 'readystatechange'],
+        pe = ['upgradeneeded', 'complete', 'abort', 'success', 'error', 'blocked', 'versionchange', 'close'],
+        fe = ['close', 'error', 'open', 'message'],
+        de = ['error', 'message'],
         ge = [
-          "abort",
-          "animationcancel",
-          "animationend",
-          "animationiteration",
-          "auxclick",
-          "beforeinput",
-          "blur",
-          "cancel",
-          "canplay",
-          "canplaythrough",
-          "change",
-          "compositionstart",
-          "compositionupdate",
-          "compositionend",
-          "cuechange",
-          "click",
-          "close",
-          "contextmenu",
-          "curechange",
-          "dblclick",
-          "drag",
-          "dragend",
-          "dragenter",
-          "dragexit",
-          "dragleave",
-          "dragover",
-          "drop",
-          "durationchange",
-          "emptied",
-          "ended",
-          "error",
-          "focus",
-          "focusin",
-          "focusout",
-          "gotpointercapture",
-          "input",
-          "invalid",
-          "keydown",
-          "keypress",
-          "keyup",
-          "load",
-          "loadstart",
-          "loadeddata",
-          "loadedmetadata",
-          "lostpointercapture",
-          "mousedown",
-          "mouseenter",
-          "mouseleave",
-          "mousemove",
-          "mouseout",
-          "mouseover",
-          "mouseup",
-          "mousewheel",
-          "orientationchange",
-          "pause",
-          "play",
-          "playing",
-          "pointercancel",
-          "pointerdown",
-          "pointerenter",
-          "pointerleave",
-          "pointerlockchange",
-          "mozpointerlockchange",
-          "webkitpointerlockerchange",
-          "pointerlockerror",
-          "mozpointerlockerror",
-          "webkitpointerlockerror",
-          "pointermove",
-          "pointout",
-          "pointerover",
-          "pointerup",
-          "progress",
-          "ratechange",
-          "reset",
-          "resize",
-          "scroll",
-          "seeked",
-          "seeking",
-          "select",
-          "selectionchange",
-          "selectstart",
-          "show",
-          "sort",
-          "stalled",
-          "submit",
-          "suspend",
-          "timeupdate",
-          "volumechange",
-          "touchcancel",
-          "touchmove",
-          "touchstart",
-          "touchend",
-          "transitioncancel",
-          "transitionend",
-          "waiting",
-          "wheel"
+          'abort',
+          'animationcancel',
+          'animationend',
+          'animationiteration',
+          'auxclick',
+          'beforeinput',
+          'blur',
+          'cancel',
+          'canplay',
+          'canplaythrough',
+          'change',
+          'compositionstart',
+          'compositionupdate',
+          'compositionend',
+          'cuechange',
+          'click',
+          'close',
+          'contextmenu',
+          'curechange',
+          'dblclick',
+          'drag',
+          'dragend',
+          'dragenter',
+          'dragexit',
+          'dragleave',
+          'dragover',
+          'drop',
+          'durationchange',
+          'emptied',
+          'ended',
+          'error',
+          'focus',
+          'focusin',
+          'focusout',
+          'gotpointercapture',
+          'input',
+          'invalid',
+          'keydown',
+          'keypress',
+          'keyup',
+          'load',
+          'loadstart',
+          'loadeddata',
+          'loadedmetadata',
+          'lostpointercapture',
+          'mousedown',
+          'mouseenter',
+          'mouseleave',
+          'mousemove',
+          'mouseout',
+          'mouseover',
+          'mouseup',
+          'mousewheel',
+          'orientationchange',
+          'pause',
+          'play',
+          'playing',
+          'pointercancel',
+          'pointerdown',
+          'pointerenter',
+          'pointerleave',
+          'pointerlockchange',
+          'mozpointerlockchange',
+          'webkitpointerlockerchange',
+          'pointerlockerror',
+          'mozpointerlockerror',
+          'webkitpointerlockerror',
+          'pointermove',
+          'pointout',
+          'pointerover',
+          'pointerup',
+          'progress',
+          'ratechange',
+          'reset',
+          'resize',
+          'scroll',
+          'seeked',
+          'seeking',
+          'select',
+          'selectionchange',
+          'selectstart',
+          'show',
+          'sort',
+          'stalled',
+          'submit',
+          'suspend',
+          'timeupdate',
+          'volumechange',
+          'touchcancel',
+          'touchmove',
+          'touchstart',
+          'touchend',
+          'transitioncancel',
+          'transitionend',
+          'waiting',
+          'wheel'
         ].concat(
+          ['webglcontextrestored', 'webglcontextlost', 'webglcontextcreationerror'],
+          ['autocomplete', 'autocompleteerror'],
+          ['toggle'],
           [
-            "webglcontextrestored",
-            "webglcontextlost",
-            "webglcontextcreationerror"
-          ],
-          ["autocomplete", "autocompleteerror"],
-          ["toggle"],
-          [
-            "afterscriptexecute",
-            "beforescriptexecute",
-            "DOMContentLoaded",
-            "freeze",
-            "fullscreenchange",
-            "mozfullscreenchange",
-            "webkitfullscreenchange",
-            "msfullscreenchange",
-            "fullscreenerror",
-            "mozfullscreenerror",
-            "webkitfullscreenerror",
-            "msfullscreenerror",
-            "readystatechange",
-            "visibilitychange",
-            "resume"
+            'afterscriptexecute',
+            'beforescriptexecute',
+            'DOMContentLoaded',
+            'freeze',
+            'fullscreenchange',
+            'mozfullscreenchange',
+            'webkitfullscreenchange',
+            'msfullscreenchange',
+            'fullscreenerror',
+            'mozfullscreenerror',
+            'webkitfullscreenerror',
+            'msfullscreenerror',
+            'readystatechange',
+            'visibilitychange',
+            'resume'
           ],
           ie,
           [
-            "beforecopy",
-            "beforecut",
-            "beforepaste",
-            "copy",
-            "cut",
-            "paste",
-            "dragstart",
-            "loadend",
-            "animationstart",
-            "search",
-            "transitionrun",
-            "transitionstart",
-            "webkitanimationend",
-            "webkitanimationiteration",
-            "webkitanimationstart",
-            "webkittransitionend"
+            'beforecopy',
+            'beforecut',
+            'beforepaste',
+            'copy',
+            'cut',
+            'paste',
+            'dragstart',
+            'loadend',
+            'animationstart',
+            'search',
+            'transitionrun',
+            'transitionstart',
+            'webkitanimationend',
+            'webkitanimationiteration',
+            'webkitanimationstart',
+            'webkittransitionend'
           ],
           [
-            "activate",
-            "afterupdate",
-            "ariarequest",
-            "beforeactivate",
-            "beforedeactivate",
-            "beforeeditfocus",
-            "beforeupdate",
-            "cellchange",
-            "controlselect",
-            "dataavailable",
-            "datasetchanged",
-            "datasetcomplete",
-            "errorupdate",
-            "filterchange",
-            "layoutcomplete",
-            "losecapture",
-            "move",
-            "moveend",
-            "movestart",
-            "propertychange",
-            "resizeend",
-            "resizestart",
-            "rowenter",
-            "rowexit",
-            "rowsdelete",
-            "rowsinserted",
-            "command",
-            "compassneedscalibration",
-            "deactivate",
-            "help",
-            "mscontentzoom",
-            "msmanipulationstatechanged",
-            "msgesturechange",
-            "msgesturedoubletap",
-            "msgestureend",
-            "msgesturehold",
-            "msgesturestart",
-            "msgesturetap",
-            "msgotpointercapture",
-            "msinertiastart",
-            "mslostpointercapture",
-            "mspointercancel",
-            "mspointerdown",
-            "mspointerenter",
-            "mspointerhover",
-            "mspointerleave",
-            "mspointermove",
-            "mspointerout",
-            "mspointerover",
-            "mspointerup",
-            "pointerout",
-            "mssitemodejumplistitemremoved",
-            "msthumbnailclick",
-            "stop",
-            "storagecommit"
+            'activate',
+            'afterupdate',
+            'ariarequest',
+            'beforeactivate',
+            'beforedeactivate',
+            'beforeeditfocus',
+            'beforeupdate',
+            'cellchange',
+            'controlselect',
+            'dataavailable',
+            'datasetchanged',
+            'datasetcomplete',
+            'errorupdate',
+            'filterchange',
+            'layoutcomplete',
+            'losecapture',
+            'move',
+            'moveend',
+            'movestart',
+            'propertychange',
+            'resizeend',
+            'resizestart',
+            'rowenter',
+            'rowexit',
+            'rowsdelete',
+            'rowsinserted',
+            'command',
+            'compassneedscalibration',
+            'deactivate',
+            'help',
+            'mscontentzoom',
+            'msmanipulationstatechanged',
+            'msgesturechange',
+            'msgesturedoubletap',
+            'msgestureend',
+            'msgesturehold',
+            'msgesturestart',
+            'msgesturetap',
+            'msgotpointercapture',
+            'msinertiastart',
+            'mslostpointercapture',
+            'mspointercancel',
+            'mspointerdown',
+            'mspointerenter',
+            'mspointerhover',
+            'mspointerleave',
+            'mspointermove',
+            'mspointerout',
+            'mspointerover',
+            'mspointerup',
+            'pointerout',
+            'mssitemodejumplistitemremoved',
+            'msthumbnailclick',
+            'stop',
+            'storagecommit'
           ]
         );
       function _e(e, t, n) {
@@ -1880,22 +1604,21 @@
       }
       function ye(e, t) {
         if (Z && !D) return;
-        if (Zone[e.symbol("patchEvents")]) return;
-        const n = "undefined" != typeof WebSocket,
+        if (Zone[e.symbol('patchEvents')]) return;
+        const n = 'undefined' != typeof WebSocket,
           o = t.__Zone_ignore_on_properties;
         if (S) {
           const e = window,
             t = function() {
               try {
                 const n = e.navigator.userAgent;
-                if (-1 !== n.indexOf("MSIE ") || -1 !== n.indexOf("Trident/"))
-                  return !0;
+                if (-1 !== n.indexOf('MSIE ') || -1 !== n.indexOf('Trident/')) return !0;
               } catch (t) {}
               return !1;
             }
-              ? [{ target: e, ignoreProperties: ["error"] }]
+              ? [{ target: e, ignoreProperties: ['error'] }]
               : [];
-          me(e, ge.concat(["messageerror"]), o ? o.concat(t) : o, r(e)),
+          me(e, ge.concat(['messageerror']), o ? o.concat(t) : o, r(e)),
             me(Document.prototype, ge, o),
             void 0 !== e.SVGElement && me(e.SVGElement.prototype, ge, o),
             me(Element.prototype, ge, o),
@@ -1914,7 +1637,7 @@
         s && me(s.prototype, he, o);
         const i = t.XMLHttpRequestEventTarget;
         i && me(i && i.prototype, he, o),
-          "undefined" != typeof IDBIndex &&
+          'undefined' != typeof IDBIndex &&
             (me(IDBIndex.prototype, pe, o),
             me(IDBRequest.prototype, pe, o),
             me(IDBOpenDBRequest.prototype, pe, o),
@@ -1923,13 +1646,10 @@
             me(IDBCursor.prototype, pe, o)),
           n && me(WebSocket.prototype, fe, o);
       }
-      Zone.__load_patch("util", (e, t, r) => {
-        (r.patchOnProperties = j),
-          (r.patchMethod = x),
-          (r.bindArguments = T),
-          (r.patchMacroTask = M);
-        const l = t.__symbol__("BLACK_LISTED_EVENTS"),
-          u = t.__symbol__("UNPATCHED_EVENTS");
+      Zone.__load_patch('util', (e, t, r) => {
+        (r.patchOnProperties = j), (r.patchMethod = x), (r.bindArguments = T), (r.patchMacroTask = M);
+        const l = t.__symbol__('BLACK_LISTED_EVENTS'),
+          u = t.__symbol__('UNPATCHED_EVENTS');
         e[u] && (e[l] = e[u]),
           e[l] && (t[l] = t[u] = e[l]),
           (r.patchEventPrototype = X),
@@ -1959,7 +1679,7 @@
             REMOVE_EVENT_LISTENER_STR: c
           }));
       });
-      const ke = _("zoneTask");
+      const ke = _('zoneTask');
       function be(e, t, n, o) {
         let r = null,
           s = null;
@@ -1973,9 +1693,7 @@
                 t.invoke.apply(this, arguments);
               } finally {
                 (t.data && t.data.isPeriodic) ||
-                  ("number" == typeof n.handleId
-                    ? delete i[n.handleId]
-                    : n.handleId && (n.handleId[ke] = null));
+                  ('number' == typeof n.handleId ? delete i[n.handleId] : n.handleId && (n.handleId[ke] = null));
               }
             }),
             (n.handleId = r.apply(e, n.args)),
@@ -1990,14 +1708,13 @@
           (t += o),
           n =>
             function(r, s) {
-              if ("function" == typeof s[0]) {
+              if ('function' == typeof s[0]) {
                 const e = g(
                   t,
                   s[0],
                   {
-                    isPeriodic: "Interval" === o,
-                    delay:
-                      "Timeout" === o || "Interval" === o ? s[1] || 0 : void 0,
+                    isPeriodic: 'Interval' === o,
+                    delay: 'Timeout' === o || 'Interval' === o ? s[1] || 0 : void 0,
                     args: s
                   },
                   a,
@@ -2006,14 +1723,14 @@
                 if (!e) return e;
                 const n = e.data.handleId;
                 return (
-                  "number" == typeof n ? (i[n] = e) : n && (n[ke] = e),
+                  'number' == typeof n ? (i[n] = e) : n && (n[ke] = e),
                   n &&
                     n.ref &&
                     n.unref &&
-                    "function" == typeof n.ref &&
-                    "function" == typeof n.unref &&
+                    'function' == typeof n.ref &&
+                    'function' == typeof n.unref &&
                     ((e.ref = n.ref.bind(n)), (e.unref = n.unref.bind(n))),
-                  "number" == typeof n || n ? n : e
+                  'number' == typeof n || n ? n : e
                 );
               }
               return n.apply(e, s);
@@ -2026,18 +1743,17 @@
               function(n, o) {
                 const r = o[0];
                 let s;
-                "number" == typeof r ? (s = i[r]) : (s = r && r[ke]) || (s = r),
-                  s && "string" == typeof s.type
-                    ? "notScheduled" !== s.state &&
+                'number' == typeof r ? (s = i[r]) : (s = r && r[ke]) || (s = r),
+                  s && 'string' == typeof s.type
+                    ? 'notScheduled' !== s.state &&
                       ((s.cancelFn && s.data.isPeriodic) || 0 === s.runCount) &&
-                      ("number" == typeof r ? delete i[r] : r && (r[ke] = null),
-                      s.zone.cancelTask(s))
+                      ('number' == typeof r ? delete i[r] : r && (r[ke] = null), s.zone.cancelTask(s))
                     : t.apply(e, o);
               }
           ));
       }
       function ve(e, t) {
-        if (Zone[t.symbol("patchEventTarget")]) return;
+        if (Zone[t.symbol('patchEventTarget')]) return;
         const {
           eventNames: n,
           zoneSymbolEventNames: o,
@@ -2052,26 +1768,22 @@
           (o[e] = {}), (o[e][s] = t), (o[e][r] = a);
         }
         const a = e.EventTarget;
-        return a && a.prototype
-          ? (t.patchEventTarget(e, [a && a.prototype]), !0)
-          : void 0;
+        return a && a.prototype ? (t.patchEventTarget(e, [a && a.prototype]), !0) : void 0;
       }
-      Zone.__load_patch("legacy", e => {
-        const t = e[Zone.__symbol__("legacyPatch")];
+      Zone.__load_patch('legacy', e => {
+        const t = e[Zone.__symbol__('legacyPatch')];
         t && t();
       }),
-        Zone.__load_patch("timers", e => {
-          be(e, "set", "clear", "Timeout"),
-            be(e, "set", "clear", "Interval"),
-            be(e, "set", "clear", "Immediate");
+        Zone.__load_patch('timers', e => {
+          be(e, 'set', 'clear', 'Timeout'), be(e, 'set', 'clear', 'Interval'), be(e, 'set', 'clear', 'Immediate');
         }),
-        Zone.__load_patch("requestAnimationFrame", e => {
-          be(e, "request", "cancel", "AnimationFrame"),
-            be(e, "mozRequest", "mozCancel", "AnimationFrame"),
-            be(e, "webkitRequest", "webkitCancel", "AnimationFrame");
+        Zone.__load_patch('requestAnimationFrame', e => {
+          be(e, 'request', 'cancel', 'AnimationFrame'),
+            be(e, 'mozRequest', 'mozCancel', 'AnimationFrame'),
+            be(e, 'webkitRequest', 'webkitCancel', 'AnimationFrame');
         }),
-        Zone.__load_patch("blocking", (e, t) => {
-          const n = ["alert", "prompt", "confirm"];
+        Zone.__load_patch('blocking', (e, t) => {
+          const n = ['alert', 'prompt', 'confirm'];
           for (let o = 0; o < n.length; o++)
             x(
               e,
@@ -2082,27 +1794,24 @@
                 }
             );
         }),
-        Zone.__load_patch("EventTarget", (e, t, n) => {
+        Zone.__load_patch('EventTarget', (e, t, n) => {
           !(function(e, t) {
             t.patchEventPrototype(e, t);
           })(e, n),
             ve(e, n);
           const o = e.XMLHttpRequestEventTarget;
           o && o.prototype && n.patchEventTarget(e, [o.prototype]),
-            I("MutationObserver"),
-            I("WebKitMutationObserver"),
-            I("IntersectionObserver"),
-            I("FileReader");
+            I('MutationObserver'),
+            I('WebKitMutationObserver'),
+            I('IntersectionObserver'),
+            I('FileReader');
         }),
-        Zone.__load_patch("on_property", (e, t, n) => {
+        Zone.__load_patch('on_property', (e, t, n) => {
           ye(n, e),
             (Object.defineProperty = function(e, t, n) {
-              if (oe(e, t))
-                throw new TypeError(
-                  "Cannot assign to read only property '" + t + "' of " + e
-                );
+              if (oe(e, t)) throw new TypeError("Cannot assign to read only property '" + t + "' of " + e);
               const o = n.configurable;
-              return "prototype" !== t && (n = re(e, t, n)), se(e, t, n, o);
+              return 'prototype' !== t && (n = re(e, t, n)), se(e, t, n, o);
             }),
             (Object.defineProperties = function(e, t) {
               return (
@@ -2114,7 +1823,7 @@
             }),
             (Object.create = function(e, t) {
               return (
-                "object" != typeof t ||
+                'object' != typeof t ||
                   Object.isFrozen(t) ||
                   Object.keys(t).forEach(function(n) {
                     t[n] = re(e, n, t[n]);
@@ -2127,27 +1836,21 @@
               return n && oe(e, t) && (n.configurable = !1), n;
             });
         }),
-        Zone.__load_patch("customElements", (e, t, n) => {
+        Zone.__load_patch('customElements', (e, t, n) => {
           !(function(e, t) {
             const { isBrowser: n, isMix: o } = t.getGlobalObjects();
             (n || o) &&
               e.customElements &&
-              "customElements" in e &&
-              t.patchCallbacks(
-                t,
-                e.customElements,
-                "customElements",
-                "define",
-                [
-                  "connectedCallback",
-                  "disconnectedCallback",
-                  "adoptedCallback",
-                  "attributeChangedCallback"
-                ]
-              );
+              'customElements' in e &&
+              t.patchCallbacks(t, e.customElements, 'customElements', 'define', [
+                'connectedCallback',
+                'disconnectedCallback',
+                'adoptedCallback',
+                'attributeChangedCallback'
+              ]);
           })(e, n);
         }),
-        Zone.__load_patch("XHR", (e, t) => {
+        Zone.__load_patch('XHR', (e, t) => {
           !(function(c) {
             const h = e.XMLHttpRequest;
             if (!h) return;
@@ -2161,8 +1864,8 @@
                 (f = e[l]), (d = e[u]);
               }
             }
-            const m = "readystatechange",
-              y = "scheduled";
+            const m = 'readystatechange',
+              y = 'scheduled';
             function k(e) {
               const t = e.data,
                 o = t.target;
@@ -2177,21 +1880,14 @@
                       const r = e.invoke;
                       (e.invoke = function() {
                         const n = o.__zone_symbol__loadfalse;
-                        for (let t = 0; t < n.length; t++)
-                          n[t] === e && n.splice(t, 1);
+                        for (let t = 0; t < n.length; t++) n[t] === e && n.splice(t, 1);
                         t.aborted || e.state !== y || r.call(e);
                       }),
                         n.push(e);
                     } else e.invoke();
                   } else t.aborted || !1 !== o[s] || (o[a] = !0);
               });
-              return (
-                f.call(o, m, c),
-                o[n] || (o[n] = e),
-                Z.apply(o, t.args),
-                (o[s] = !0),
-                e
-              );
+              return f.call(o, m, c), o[n] || (o[n] = e), Z.apply(o, t.args), (o[s] = !0), e;
             }
             function b() {}
             function v(e) {
@@ -2200,60 +1896,49 @@
             }
             const T = x(
                 p,
-                "open",
+                'open',
                 () =>
                   function(e, t) {
                     return (e[o] = 0 == t[2]), (e[i] = t[1]), T.apply(e, t);
                   }
               ),
-              w = _("fetchTaskAborting"),
-              E = _("fetchTaskScheduling"),
+              w = _('fetchTaskAborting'),
+              E = _('fetchTaskScheduling'),
               Z = x(
                 p,
-                "send",
+                'send',
                 () =>
                   function(e, n) {
                     if (!0 === t.current[E]) return Z.apply(e, n);
                     if (e[o]) return Z.apply(e, n);
                     {
-                      const t = {
-                          target: e,
-                          url: e[i],
-                          isPeriodic: !1,
-                          args: n,
-                          aborted: !1
-                        },
-                        o = g("XMLHttpRequest.send", b, t, k, v);
-                      e &&
-                        !0 === e[a] &&
-                        !t.aborted &&
-                        o.state === y &&
-                        o.invoke();
+                      const t = { target: e, url: e[i], isPeriodic: !1, args: n, aborted: !1 },
+                        o = g('XMLHttpRequest.send', b, t, k, v);
+                      e && !0 === e[a] && !t.aborted && o.state === y && o.invoke();
                     }
                   }
               ),
               S = x(
                 p,
-                "abort",
+                'abort',
                 () =>
                   function(e, o) {
                     const r = e[n];
-                    if (r && "string" == typeof r.type) {
-                      if (null == r.cancelFn || (r.data && r.data.aborted))
-                        return;
+                    if (r && 'string' == typeof r.type) {
+                      if (null == r.cancelFn || (r.data && r.data.aborted)) return;
                       r.zone.cancelTask(r);
                     } else if (!0 === t.current[w]) return S.apply(e, o);
                   }
               );
           })();
-          const n = _("xhrTask"),
-            o = _("xhrSync"),
-            r = _("xhrListener"),
-            s = _("xhrScheduled"),
-            i = _("xhrURL"),
-            a = _("xhrErrorBeforeScheduled");
+          const n = _('xhrTask'),
+            o = _('xhrSync'),
+            r = _('xhrListener'),
+            s = _('xhrScheduled'),
+            i = _('xhrURL'),
+            a = _('xhrErrorBeforeScheduled');
         }),
-        Zone.__load_patch("geolocation", e => {
+        Zone.__load_patch('geolocation', e => {
           e.navigator &&
             e.navigator.geolocation &&
             (function(e, t) {
@@ -2265,37 +1950,29 @@
                   if (!w(n(e, s))) continue;
                   e[s] = (e => {
                     const t = function() {
-                      return e.apply(this, T(arguments, o + "." + s));
+                      return e.apply(this, T(arguments, o + '.' + s));
                     };
                     return L(t, e), t;
                   })(i);
                 }
               }
-            })(e.navigator.geolocation, [
-              "getCurrentPosition",
-              "watchPosition"
-            ]);
+            })(e.navigator.geolocation, ['getCurrentPosition', 'watchPosition']);
         }),
-        Zone.__load_patch("PromiseRejectionEvent", (e, t) => {
+        Zone.__load_patch('PromiseRejectionEvent', (e, t) => {
           function n(t) {
             return function(n) {
               V(e, t).forEach(o => {
                 const r = e.PromiseRejectionEvent;
                 if (r) {
-                  const e = new r(t, {
-                    promise: n.promise,
-                    reason: n.rejection
-                  });
+                  const e = new r(t, { promise: n.promise, reason: n.rejection });
                   o.invoke(e);
                 }
               });
             };
           }
           e.PromiseRejectionEvent &&
-            ((t[_("unhandledPromiseRejectionHandler")] = n(
-              "unhandledrejection"
-            )),
-            (t[_("rejectionHandledHandler")] = n("rejectionhandled")));
+            ((t[_('unhandledPromiseRejectionHandler')] = n('unhandledrejection')),
+            (t[_('rejectionHandledHandler')] = n('rejectionhandled')));
         });
     }
   },
