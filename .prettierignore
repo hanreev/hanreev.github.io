@@ -15,3 +15,8 @@
 
 source/dist
 source/resources/colors.scss
+
+/assets
+/fonts
+/*.js
+/*.html
