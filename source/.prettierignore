@@ -1,0 +1,17 @@
+*.eot
+*.otf
+*.ttf
+*.woff
+*.woff2
+
+*.jpg
+*.jpeg
+*.png
+*.svg
+*.ico
+
+.DS_Store
+.gitkeep
+
+dist
+resources/colors.scss

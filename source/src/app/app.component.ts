@@ -1,13 +1,13 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router, NavigationStart, NavigationEnd } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 
-import { SettingsService } from './settings.service';
 import { initFormControl } from './helpers';
+import { SettingsService } from './settings.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   title = 'app';
@@ -20,15 +20,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this._router.events.subscribe(route => {
-      if (route instanceof NavigationEnd) {
-        initFormControl();
-      }
+      if (route instanceof NavigationEnd) initFormControl();
     });
 
-    this.translate.onLangChange.subscribe(result => {
-      if (Object.keys(result.translations).indexOf('settings') !== -1) {
+    this.translate.onLangChange.subscribe((result: LangChangeEvent) => {
+      if (Object.keys(result.translations).indexOf('settings') !== -1)
         this.settings.update(result.translations.settings);
-      }
     });
   }
 }

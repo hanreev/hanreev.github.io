@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '../settings.service';
-import { elementsObserver } from '../helpers';
 
+import { elementsObserver } from '../helpers';
+import { SettingsService } from '../settings.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styles: [],
+  styles: []
 })
 export class HomeComponent implements OnInit {
-  settings: SettingsService;
   socials: Array<any>;
+  portfolios: any[] = [];
 
-  constructor(private _settings: SettingsService) {
-    this.settings = _settings;
-    this.socials = Object.values(_settings.social);
+  constructor(public settings: SettingsService) {
+    this.socials = Object.values(settings.social);
   }
 
   ngOnInit() {
@@ -25,5 +24,4 @@ export class HomeComponent implements OnInit {
       });
     });
   }
-
 }

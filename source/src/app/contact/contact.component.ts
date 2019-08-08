@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { NgForm, NgModel } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { AngularFireDatabase } from 'angularfire2/database';
 
-import { TRANSLATE } from '../helpers';
 import { ContactModel } from '../contact.model';
-
+import { TRANSLATE } from '../helpers';
 
 @Component({
   selector: 'app-contact',
@@ -13,12 +12,11 @@ import { ContactModel } from '../contact.model';
   styles: []
 })
 export class ContactComponent implements OnInit {
-
   placeholder = {
     name: TRANSLATE('placeholder.name'),
     email: TRANSLATE('placeholder.email'),
     subject: TRANSLATE('placeholder.subject'),
-    message: TRANSLATE('placeholder.message'),
+    message: TRANSLATE('placeholder.message')
   };
 
   validation = {
@@ -27,9 +25,9 @@ export class ContactComponent implements OnInit {
       maxlength: TRANSLATE('validation.errors.maxlength'),
       minlength: TRANSLATE('validation.errors.minlength'),
       other: TRANSLATE('validation.errors.other'),
-      required: TRANSLATE('validation.errors.required'),
+      required: TRANSLATE('validation.errors.required')
     }
-  }
+  };
 
   model = new ContactModel();
 
@@ -85,9 +83,10 @@ export class ContactComponent implements OnInit {
       form.reset();
       this.translate.get(TRANSLATE('contact-success')).subscribe(res => {
         this.successMessage = res;
-        setTimeout(() => { this.successMessage = null; }, 10000);
+        setTimeout(() => {
+          this.successMessage = null;
+        }, 10000);
       });
     }
   }
-
 }

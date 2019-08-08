@@ -1,53 +1,50 @@
 {
-	"About me": "Tentang saya",
-	"Language": "Language",
-	"My Portfolio": "Portofolio Saya",
-	"Send Message": "Kirim Pesan",
-	"Skills": "Keterampilan",
-	"Want to contact me?": "Ingin menghubungi saya?",
-	"about": "Seorang programmer profesional dan berpengalaman, cepat belajar dan pekerja keras. Muhammad Hanif Rifa'i — lahir pada tanggal 5 April 1993 dari pasangan Hartono dan Umul Umiyatin, ayah dari dua putra dari pernikahan dengan Jissyca Dhea Prihastara — Berpengalaman dalam C ++, Python, PHP, Ruby, Java, JavaScript, Lua, Qt , Django, Geodjango, Laravel, Ruby on Rails, Android Studio, GeoServer, NodeJS, Vue, Angular, React, OpenLayers, Leaflet, Google Maps JS, MySQL, PostgreSQL, PostGIS, SQLite, Git, Administrasi Linux, dan sebagainya.",
-	"contact-success": "Pesan Anda berhasil dikirim. Terima Kasih!",
-	"placeholder": {
-		"email": "Email",
-		"message": "Tulis pesan",
-		"name": "Nama",
-		"subject": "Subyek"
-	},
-	"settings": {
-		"profile": {
-			"title": "Programmer & CTO Karomap, Inc."
-		},
-		"site": {
-			"description": "Website Personal Rifa'i M. Hanif"
-		},
-		"social": {
-			"facebook": {
-				"tooltip": "Ikuti saya di Facebook"
-			},
-			"github": {
-				"tooltip": "Lihat repositori Github saya"
-			},
-			"gplus": {
-				"tooltip": "Ikuti saya di Google+"
-			},
-			"instagram": {
-				"tooltip": "Ikuti saya di Instagram"
-			},
-			"twitter": {
-				"tooltip": "Ikuti saya di Twitter"
-			},
-			"youtube": {
-				"tooltip": "Lihat repositori Youtube saya"
-			}
-		}
-	},
-	"validation": {
-		"errors": {
-			"email": "Email tidak valid",
-			"maxlength": "Maksimal {{ maxlength }} karakter",
-			"minlength": "Minimal {{ minlength }} karakter",
-			"other": "Tidak valid",
-			"required": "Kolom ini harus diisi"
-		}
-	}
+  "About me": "Tentang saya",
+  "Language": "Language",
+  "My Portfolio": "Portofolio Saya",
+  "Send Message": "Kirim Pesan",
+  "Skills": "Keterampilan",
+  "Want to contact me?": "Ingin menghubungi saya?",
+  "about": "Seorang programmer profesional dan berpengalaman, cepat belajar dan pekerja keras.",
+  "contact-success": "Pesan Anda berhasil dikirim. Terima Kasih!",
+  "placeholder": {
+    "email": "Email",
+    "message": "Tulis pesan",
+    "name": "Nama",
+    "subject": "Subyek"
+  },
+  "settings": {
+    "profile": {
+      "title": "GIS Programmer"
+    },
+    "site": {
+      "description": "Website Personal Rifa'i M. Hanif"
+    },
+    "social": {
+      "facebook": {
+        "tooltip": "Ikuti saya di Facebook"
+      },
+      "github": {
+        "tooltip": "Lihat repositori Github saya"
+      },
+      "instagram": {
+        "tooltip": "Ikuti saya di Instagram"
+      },
+      "twitter": {
+        "tooltip": "Ikuti saya di Twitter"
+      },
+      "youtube": {
+        "tooltip": "Lihat repositori Youtube saya"
+      }
+    }
+  },
+  "validation": {
+    "errors": {
+      "email": "Email tidak valid",
+      "maxlength": "Maksimal {{ maxlength }} karakter",
+      "minlength": "Minimal {{ minlength }} karakter",
+      "other": "Tidak valid",
+      "required": "Kolom ini harus diisi"
+    }
+  }
 }

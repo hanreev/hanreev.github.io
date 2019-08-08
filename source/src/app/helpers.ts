@@ -5,14 +5,20 @@ export function TRANSLATE(str: string) {
 }
 
 export function initFormControl() {
-  $('.form-control').on("focus", function() {
-    $(this).parent('.input-group').addClass("input-group-focus");
-  }).on("blur", function() {
-    $(this).parent(".input-group").removeClass("input-group-focus");
-  });
+  $('.form-control')
+    .on('focus', function() {
+      $(this)
+        .parent('.input-group')
+        .addClass('input-group-focus');
+    })
+    .on('blur', function() {
+      $(this)
+        .parent('.input-group')
+        .removeClass('input-group-focus');
+    });
 }
 
-export function elementObserver(selector: string, interval = 200): Observable<Element>  {
+export function elementObserver(selector: string, interval = 200): Observable<Element> {
   return new Observable(subscriber => {
     const observe = () => {
       const element = document.querySelector(selector);

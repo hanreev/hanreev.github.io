@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from '../settings.service';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,7 +13,5 @@ export class HeaderComponent implements OnInit {
     this.settings = _settings;
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
